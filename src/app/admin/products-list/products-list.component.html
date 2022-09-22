@@ -1,0 +1,36 @@
+
+  <div class="mt-6 main">
+    <table class='table'>
+      <thead class='thead-light'>
+        <tr>
+          <th>product Id</th>
+          <th>product Title</th>
+          <th>product Description</th>
+          <th>product Photo</th>
+          <th>product Price</th>
+          <th>product Discount</th>
+          <th>product Quantity</th>
+          <th>Category Id</th>
+          <th>delete</th>
+          <th>update</th>
+        </tr>
+
+        <tr *ngFor="let product of products">
+          <td>{{product.id}}</td>
+          <td>{{product.brand}}</td>
+          <td>{{product.name}}</td>
+          <td> <img src="data:image/jpeg;base64,{{product.productImage}}" alt="product image"
+              style="max-height:200px; max-width:100%" class="zoom-image"></td>
+          <td>{{product.price}}</td>
+          <td>{{product.discount}}</td>
+          <td>{{product.quantity}}</td>
+          <td>{{product.category?.name}}</td>
+          <td><button class="btn btn-danger delete-button" (click)="deleteProduct(product.id)">delete</button></td>
+          <td><button class="btn btn-success" (click)="navigateUpdateProduct(product.id)">update</button></td>
+        </tr>
+
+      </thead>
+    </table>
+  </div>
+  
+

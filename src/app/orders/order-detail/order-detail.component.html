@@ -1,0 +1,71 @@
+<div class="container" *ngIf="order">
+    <div class="row">
+
+        <div class="col-md-4">
+            <ul>
+            <li><i class="fa fa-user-circle" aria-hidden="true"></i>{{order.customerName}}</li>
+            <li><i class="fa fa-mobile" aria-hidden="true"></i>{{order.customerNumber}}</li>
+            <li><i class="fa fa-gift" aria-hidden="true"></i>{{order.id}}</li>
+            <li><i class="fa fa-clock-o" aria-hidden="true"></i>{{order.date | date :'medium'}}</li>
+            <li><i class="fa fa-inr" aria-hidden="true"></i>{{order.orderAmount}}</li>
+            <li><i class="fa fa-spinner" aria-hidden="true"></i>{{order.status}}</li>
+        </ul>
+        <table *ngIf="order.address">
+            <tr><i class="fa fa-map-marker" aria-hidden="true"></i></tr>
+            <tr>
+                <td>{{order.address.city}}</td>
+            </tr>
+
+            <tr>
+               
+                <td>{{order.address.landMark}}</td>
+            </tr>
+
+            <tr>
+                
+                <td>{{order.address.state}}</td>
+            </tr>
+            <tr>
+               
+                <td>{{order.address.country}}</td>
+            </tr>
+
+            <tr>
+                
+                <td>{{order.address.pincode}}</td>
+            </tr>
+            
+        </table>
+        
+        </div>
+        <div class="col-md-8">
+            <div class="card-columns">
+
+                <div class="products">
+                    <div class="product-card card" *ngFor="let product of order.products">
+                        <div class="card-body">
+                        <div class="container text-center image-container">
+                            <img class="card-img-top mt-1" src="data:image/jpeg;base64,{{product.productImage}}"
+                                alt="{{product.name}} image" >
+                        </div>
+                        
+                            <h6 class="card-title">{{product.brand}}</h6>
+                            <p class="card-text">
+                               {{product.name}}
+                            </p>
+                            <p class="card-text">
+                                {{product.description}}
+                             </p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-success"><span>&#8377;</span>{{product.total}}</button>
+                            <span style="color:gray">&#8377;{{product.price}}</span>
+                            <span style="color:blue"><small>quantity : </small>{{product.quantity}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

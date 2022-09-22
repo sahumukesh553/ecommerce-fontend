@@ -1,0 +1,34 @@
+<div class="row mt-4">
+
+
+    <div class="col-md-12">
+
+        <div class="card-columns">
+
+            <div class="products">
+                <div class="product-card card" *ngFor="let product of products | filter:searchKey:''">
+                    <div class="card-body" (click)="showProduct(product.id)">
+                    <div class="container text-center image-container">
+                        <img class="card-img-top mt-1" src="data:image/jpeg;base64,{{product.productImage}}"
+                            alt="{{product.name}} image" >
+                    </div>
+                    
+                        <h6 class="card-title">{{product.brand}}</h6>
+                        <p class="card-text">
+                           {{product.name}}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn nav-bg-color"
+                            (click)="addtocart(product)">add to
+                            cart</button>
+                        <button class="btn btn-success"><span>&#8377;</span>{{product.dicountedPrice}}</button>
+                        <span style="color:gray; text-decoration:line-through;">&#8377;{{product.price}}</span>
+                        <span style="color:blue">&#8377;{{product.percentageDiscount}}%off</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

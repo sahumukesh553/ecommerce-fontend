@@ -1,0 +1,37 @@
+
+      <h1>{{address?.id == null ? 'Add' : 'Edit'}} Address - {{address?.id}}</h1>
+        <form action="make-order" method="post" *ngIf="address" class="form">
+
+            <div class="form-group">
+              <label for="inputCity">City</label>
+              <input type="text" class="form-control" id="inputCity" name="city" [(ngModel)]="address.city" required>
+            </div>
+            <div class="form-group">
+              <label for="inputState">State</label>
+              <select id="inputState" class="form-control" name="state" [(ngModel)]="address.state" required>
+                <option value="{{address.state}}" selected disabled *ngIf="address.state;else defaultOption">{{address.state}}</option>
+                <ng-template #defaultOption>
+                <option value="undefined" selected disabled>Choose...</option>
+            </ng-template>
+                <option *ngFor="let state of states" value="{{state.name}}">{{state.name}}</option>
+                
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="inputZip">Country</label>
+                <input type="text" class="form-control" id="inputZip"  name="country" [(ngModel)]="address.country" required>
+             </div>
+
+            <div class="form-group">
+              <label for="inputZip">Pin Code</label>
+              <input type="text" class="form-control" id="inputZip"  name="pincode" [(ngModel)]="address.pincode" required>
+            </div>
+
+            <div class="form-group">
+              <label for="inputZip">landMark</label>
+              <textarea type="text" rows="2" cols="2" class="form-control" id="inputZip"  name="landMark" [(ngModel)]="address.landMark" required></textarea>
+            </div>
+        <button type="submit" class="btn btn-primary" (click)="saveAddress()">{{address.id == null ? 'Add' : 'Edit'}} Address</button>
+        </form>
+        
+        

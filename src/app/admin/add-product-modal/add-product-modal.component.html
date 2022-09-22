@@ -1,0 +1,48 @@
+
+  <div class=" card update-container">
+    <form action="addProduct" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+           <label for="exampleFormControlInput1">Product Title</label>
+           <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product Title" name="productTitle" [(ngModel)]="product.name" required>
+         </div>
+         <div class="form-group">
+          <label for="exampleFormControlInput1">Product Brand</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product Title" name="productBrand" [(ngModel)]="product.brand" required>
+        </div>
+
+         <div class="form-group">
+           <label for="exampleFormControlInput2">Product price</label>
+           <input type="number" class="form-control" id="exampleFormControlInput2" placeholder="Enter Product Price" name="productPrice" [(ngModel)]="product.price" required>
+         </div>
+         <div class="form-group">
+           <label for="exampleFormControlInput3">Product Quantity</label>
+           <input type="number" class="form-control" id="exampleFormControlInput3" placeholder="Enter Product Quantity" name="productQuantity" [(ngModel)]="product.quantity" required>
+         </div>
+         <div class="form-group">
+           <label for="exampleFormControlInput4">Product Discount</label>
+           <input type="number" class="form-control" id="exampleFormControlInput4" placeholder="Enter Product Discount" name="productDiscount" [(ngModel)]="product.discount" required>
+         </div>
+          <div class="form-group">
+           <label for="exampleFormControlSelect5">Product Category</label>
+           <select class="form-control" id="exampleFormControlSelect5" name="productCategory"  required [(ngModel)]="product.categoryId">
+             <option selected>select</option>
+                 <option *ngFor="let category of allCategories" value="{{category.id}}">{{category.name}}</option>
+                 
+               
+           </select>
+         </div>
+         <div class="form-group">
+           <label for="exampleFormControlFile6">Product Pic</label>
+           <input type="file" class="form-control-file" name="productPhoto" id="productPhoto" (change)="onFileChanged($event)">
+              <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+         </div>
+         <div class="form-group">
+         <label for="exampleFormControlTextarea7">Product Description</label>
+           <textarea class="form-control" id="exampleFormControlTextarea7" rows="2" name="productDesc" [(ngModel)]="product.description" required></textarea>
+         </div>
+         <button type="submit" class="btn btn-outline-success" (click)="addProduct(product)">Add Product</button>
+           <button type="reset" class="btn btn-outline-warning">Reset</button>
+       </form>
+
+  </div>
+  

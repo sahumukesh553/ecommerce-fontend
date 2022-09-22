@@ -1,0 +1,32 @@
+
+<div class="container main">
+<div class="row">
+<app-cart-modal></app-cart-modal>
+</div>
+<div class="row" *ngIf="order && loggedInUser">
+<form>
+    <div class="form-group">
+      <label for="inputEmail4">Name</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Name"  name="name"  [(ngModel)]="order.customerName" required>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword4">Mobile</label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="mobile number"   name="mobile"  [(ngModel)]="order.customerNumber" required>
+    </div>
+  
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <select class="form-control"  name="address" [(ngModel)]="order.addressId">
+      <option selected value="undefined">address</option>
+      <option *ngFor="let address of loggedInUser.addresses" [value]="address.id">
+        {{address.city}} 
+      </option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="makeOrder()">order</button>
+  <a [routerLink]="['/home']">shop more</a>
+</form>
+</div>
+</div>
+
+

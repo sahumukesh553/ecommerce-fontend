@@ -1,0 +1,84 @@
+  
+<html>
+    <head>
+    <title>admin page</title>
+    </head>
+    <body>
+    
+    <div class="container admin main">
+    
+    <div class="row mt-3">
+    
+    <div class="col-md-4">
+    <div class="card" (click)="goToUsersList()">
+    <div class="card-body">
+    <div class="container">
+    <img  style="max-width:100px" alt="user-icon" src="assets/images/users.png" class="img-fuild rounded-circle">
+    </div>
+    <h2>{{totalUsers}}</h2>
+    <h1 class="text-uppercase text-muted">users</h1>
+    </div>
+    </div>
+    </div>
+    
+    <div class="col-md-4">
+    <div class="card" (click)="goToCategoriesList()">
+    <div class="card-body">
+    <div class="container">
+    <img  style="max-width:100px" alt="categories-icon" src="assets/images/categories.png" class="img-fuild rounded-circle">
+    </div>
+    <h2>{{totalCategories}}</h2>
+    <h1 class="text-uppercase text-muted">categories</h1>
+    </div>
+    </div>
+    </div>
+    
+    <div class="col-md-4">
+    <div class="card" (click)="goToProductsList()">
+    <div class="card-body">
+    <div class="container">
+    <img  style="max-width:100px" alt="products-icon" src="assets/images/products.png" class="img-fuild rounded-circle"><a href="product-list.jsp"></a>
+    </div>
+    <h2>{{totalProducts}}</h2>
+    <h1 class="text-uppercase text-muted">products</h1>
+    </div>
+    </div>
+    </div>
+    
+    </div>
+    <!-- Second row -->
+    <div class="row mt-3">
+    
+    <div class="col-md-6">
+    <div class="card" (click)="openCategoryModal()">
+    <div class="card-body">
+    <div class="container">
+    <img  style="max-width:100px" alt="add-category-icon" src="assets/images/plus.png" class="img-fuild rounded-circle">
+    </div>
+    <p>click here to add new category</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="card" (click)="openProductModal()">
+    <div class="card-body">
+    <div class="container">
+    <img  style="max-width:100px" alt="add-product-icon" src="assets/images/plus.png" class="img-fuild rounded-circle">
+    </div>
+    <p>click here to add new product</p>
+    </div>
+    </div>
+    </div>
+    
+    </div>
+    
+    </div>
+   
+    
+    
+    
+    
+   
+    
+    </body>
+    </html>

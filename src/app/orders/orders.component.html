@@ -1,0 +1,17 @@
+
+<table *ngIf="orders">
+    <tr>
+        <th>Order-Id</th>
+        <th>Order-Date</th>
+        <th>Order-Amount</th>
+        <th>Order-Status</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let order of orders">
+   <td><i class="fa fa-gift" aria-hidden="true"></i>{{order.id}}</td>
+   <td><i class="fa fa-clock-o" aria-hidden="true"></i>{{order.date |date :'fullDate'}}</td>
+   <td><span>&#8377;</span>{{order.orderAmount}}</td>
+   <td>{{order.status}}</td>
+   <td><button class="btn btn-success" (click)="viewOrder(order.id)">View Order</button></td>
+    </tr>
+</table>

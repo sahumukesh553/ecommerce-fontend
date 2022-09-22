@@ -1,0 +1,11 @@
+<div class="list-group mt-4" id="category-list" style="position:fixed;width:13%">
+
+    <button  class="list-group-item list-group-item-action"  (click)="filter('all-products');makeActive(0)" id="category0" >
+      All Products
+    </button>
+  
+    
+<div *ngFor="let category of categories;let i = index">
+  <button  class="list-group-item list-group-item-action" id="category{{i+1}}" (click)="filter(category.name);makeActive(i+1)">{{category.name}}</button>
+</div>
+  </div>

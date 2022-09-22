@@ -1,0 +1,31 @@
+<h1>Address Details</h1>
+
+    <table *ngIf="address">
+        <tr>
+            <td>City</td>
+            <td>{{address.city}}</td>
+        </tr>
+        <tr>
+            <td>landMark</td>
+            <td>{{address.landMark}}</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>{{address.state}}</td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>{{address.country}}</td>
+        </tr>
+        <tr>
+            <td>Pincode</td>
+            <td>{{address.pincode}}</td>
+        </tr>
+       
+    </table>
+    
+    <br><br>
+
+    <a class="btn btn-small btn-danger" (click)="deleteAddress()">delete</a>
+    <a class="btn btn-small btn-warning mx-5" (click)="editAddress()">edit</a>   
+

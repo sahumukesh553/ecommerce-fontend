@@ -1,0 +1,80 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark nav-bg-color" width="100%">
+  <div class="container">
+   <a class="navbar-brand" [routerLink]="['home']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">MuskanShopping</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+ 
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item " *ngIf="this.authService.isAdmin()">
+        <a class="nav-link" [routerLink]="['admin','home']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"> Admin Home <span class="sr-only">(current)</span></a>
+      </li>
+     
+       <li class="nav-item ">
+         <a class="nav-link"[routerLink]="['home']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">Home <span class="sr-only">(current)</span></a>
+       </li>
+     
+       
+       
+    
+       
+    
+       <li class="nav-item">
+         <a class="nav-link"[routerLink]="['contact']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">Contact</a>
+       </li>
+
+    
+      <!--  <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Category
+         </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <a class="dropdown-item" href="#">Action</a>
+           <a class="dropdown-item" href="#">Another action</a>
+           <div class="dropdown-divider"></div>
+           <a class="dropdown-item" href="#">Something else here</a>
+         </div>
+       </li> -->
+    </ul>
+    
+    
+       <ul class="navbar-nav ml-auto">
+       <li class="nav-item">
+        
+         <button [routerLink]="['cart']" class="btn btn-primary"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <i style="font-size: 30px;" class="fa fa-cart-plus"></i>
+          <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+      </button>
+       </li>
+       
+       
+       <li class="nav-item" *ngIf="!this.authService.isUserLoggedIn()">
+         <a class="nav-link" [routerLink]="['login']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">Login</a>
+           
+       </li>
+       <li class="nav-item" *ngIf="!this.authService.isUserLoggedIn()">
+       <a class="nav-link"  [routerLink]="['register']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">Register</a>
+
+       </li>
+    
+   
+       <li class="nav-item" *ngIf="this.authService.isUserLoggedIn()" >
+        <a class="nav-link"  [routerLink]="['profile']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><i class="fa fa-user" ></i>{{loggedInUser?.name}}</a>
+          
+      </li>
+
+      <li class="nav-item"  *ngIf="this.authService.isUserLoggedIn()">
+        <button class="nav-link" id="btn-logout" (click)="logoutUser()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">Logout</button>
+          
+      </li>
+      
+   
+       </ul>
+
+      
+   </div>
+   </div>
+ </nav>

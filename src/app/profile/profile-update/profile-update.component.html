@@ -1,0 +1,34 @@
+<div class="card  update-container" *ngIf="loggedInUser">
+  <form action="register" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Name</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your name"
+        name="userName" required="required" [(ngModel)]="loggedInUser.name">
+    </div>
+    <div class="form-group">
+      <label for="userEmail">Email address</label>
+      <input type="email" class="form-control" id="userEmail" placeholder="name@example.com" name="userEmail"
+        onblur="validateEmail()" required="required" [(ngModel)]="loggedInUser.email">
+      <small id="emailValidation"></small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword3">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="userPassword"
+        required="required" [(ngModel)]="loggedInUser.password">
+    </div>
+    <div class="form-group">
+      <label for="userPhone">mobile number</label>
+      <input type="tel" class="form-control" id="userPhone" placeholder="Enter mobile number" name="userPhone"
+        onblur="validatePhone()" required="required" [(ngModel)]="loggedInUser.number">
+      <small id="phoneValidation"></small>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlFile5">profile pic</label>
+      <input type="file" class="form-control-file" id="exampleFormControlFile5" name="userPic" (change)="onFileChanged($event)">
+      <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+    </div>
+    <button type="submit" class="btn btn-outline-success" (click)="updateUser(loggedInUser)">update</button>
+    <button type="reset" class="btn btn-outline-warning">Reset</button>
+  </form>
+</div>
+

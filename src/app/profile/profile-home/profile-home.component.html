@@ -1,0 +1,19 @@
+<div class="container main">
+    <div class="row mt-5 ">
+    <div class="col-md-4 ">
+    <div class="card">
+    <ul style="list-style-type: none">
+    <li><img  src="data:image/jpeg;base64,{{loggedInUser?. profileImage}}" alt="profile image" style="max-height:200px; max-width:100% ;border-radius:100px" class="zoom-image"></li>
+    <li><h2 style="color:gray;">{{loggedInUser?.name}}</h2></li>
+    <li><button class="btn btn-primary" (click)="navigateUpdateProfile()">update profile</button></li>
+    <li class="nav-link"><a  [routerLink]="['/address']" >manage-address</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-md-8" style="background: gray;">
+      <app-orders></app-orders>
+</div>
+</div>
+</div>
+    
+    

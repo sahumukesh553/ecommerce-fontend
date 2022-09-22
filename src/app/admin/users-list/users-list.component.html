@@ -1,0 +1,54 @@
+
+<html>
+<head>
+
+<title>users list</title>
+</head>
+<body>
+
+<div class="mt-5 main">
+<table class="table ">
+		<thead class='thead-light'>
+		<tr>
+		<th>User Id</th>
+		<th>User Name</th>
+		<th>User Email</th>
+		<th>User Pic</th>
+		<th>User Mobile</th>
+		<th>User Address</th>
+		<th>User Type</th>
+		<th>delete</th>
+		<th>update</th>
+		</tr>
+		
+		<tr *ngFor="let user of users">
+		<td>{{user.id }}</td>
+		<td>{{user.name}} </td>
+		<td>{{user.email}}</td>
+		<td> <img  src="data:image/jpeg;base64,{{user.profileImage}}" alt="user image" style="max-height:200px; max-width:100%" class="zoom-image"></td>
+		<td>{{user.number}}</td>
+		<td>
+			<select>
+				<option selected>address</option>
+				<option *ngFor="let address of user.addresses">
+					<div class="card">
+                    <div class="card-body">
+						<p>{{address.city}}</p>
+						<p>{{address.state}}</p>
+						<p>{{address.country}}</p>
+						<p>{{address.pincode}}</p>
+					</div>
+					</div>
+				</option>
+			</select>
+		</td>
+		<td>{{user.role?.roleName}}</td>
+		<td><button class="btn btn-danger delete-button" (click)="deleteUser(user.id)">delete</button></td>
+		<td><button class="btn btn-success" id="updateUserButton" (click)="navigateUpdateUser(user.id)">update</button></td>
+		</tr>
+	
+		</thead>
+		</table>
+		</div>
+</body>
+</html>

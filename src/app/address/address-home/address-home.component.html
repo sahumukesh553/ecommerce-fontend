@@ -1,0 +1,38 @@
+<h1>Manage Addresses</h1>
+<a class="btn btn-primary mb-3" (click)="addAddress()">Add New Address</a>
+  <div class="row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>City</th>
+          <th>landMark</th>
+          <th>State</th>
+          <th>pincode</th>
+          <th>country</th>
+           <th>action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let address of addresses">
+          <td>{{address.city}}</td>
+          <td>{{address.landMark}}</td>
+          <td>{{address.state}}</td>
+          <td>{{address.pincode}}</td>
+          <td>{{address.country}}</td>
+          
+          <td>
+            <button type="button" class="btn btn-primary" (click)="viewAddress(address.id)">Show Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+   
+        <app-add-update-address *ngIf="action === 'edit' || action === 'add'" [address]="selectedAddress" (addressUploadEvent)="getAllAddresses()"></app-add-update-address>
+      
+        <app-view-address *ngIf="action === 'view'" [address]="selectedAddress" (addressDeletedEvent)="getAllAddresses()"></app-view-address>
+  </div>
+</div>
+

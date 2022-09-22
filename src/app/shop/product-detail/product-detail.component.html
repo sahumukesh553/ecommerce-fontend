@@ -1,0 +1,19 @@
+
+
+<div class="container main">
+<div class="row mt-5" *ngIf="product">
+<div class="col-md-4 mx-5" >
+<img  src="data:image/jpeg;base64,{{product.productImage}}" alt="product image" style="max-height:200px; max-width:100%">
+</div>
+<div class="col-md-6 mx-3">
+<h2 style="color:#673ab7!important">{{product.name}}</h2> 
+<h3 style="color:#673ab7!important">{{product.brand}}</h3>
+<h4 style="color:green"><span>&#8377;</span>{{product.dicountedPrice}}</h4>
+<p><span style="color:gray; text-decoration:line-through;">&#8377;{{product.price}}</span></p>
+<p style="color:blue">&#8377;{{product.percentageDiscount}}%off</p>
+<p style="color:blue">{{product.description}}</p>
+<button class="btn nav-bg-color"  (click)="addtocart(product)">add to cart</button>
+</div>
+</div>
+</div>
+

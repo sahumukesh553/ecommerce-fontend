@@ -1,0 +1,15 @@
+<div class="card update-container" *ngIf="currentCategory">
+    <form action="addCategory" method="post">
+      <div class="form-group">
+   <label for="exampleFormControlInput1">Category Title</label>
+   <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Category Title" name="categoryTitle" [(ngModel)]="currentCategory.name" required>
+ </div>
+      <div class="form-group">
+ <label for="exampleFormControlTextarea7">Category Description</label>
+   <textarea class="form-control" id="exampleFormControlTextarea7" rows="2" name="categoryDescription" [(ngModel)]="currentCategory.description" required></textarea>
+ </div>
+ <button type="submit" class="btn btn-outline-success" (click)="updateCategory(currentCategory)">update Category</button>
+   <button type="reset" class="btn btn-outline-warning">Reset</button>
+</form>
+</div>
+ 
