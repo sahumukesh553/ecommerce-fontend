@@ -9,12 +9,13 @@
     </div>
 <div class="row mt-3 mx-2">
 
-<div class="col-md-2">
-<app-categories (categoryClickEvent)="filter($event)"></app-categories>
+<div  class="container col-md-2 pd-6">
+
+<app-categories  (categoryClickEvent)="filter($event)"></app-categories>
 </div>
 
-<div class="col-md-10">
-<app-shop [products]="filterCategory"></app-shop>
+<div class="container col-md-10" style="position:relative;">
+<app-shop  [products]="filterCategory" ></app-shop>
 </div>
 
 

@@ -30,8 +30,13 @@ export class ProductDetailComponent implements OnInit {
             (response)=>{
               this.product=response;
               this.spinner.hide();
+              
             }
-          )
+            ,(error)=>{
+              console.log("error is cought");
+            }
+            )
+          
           }
         });
           

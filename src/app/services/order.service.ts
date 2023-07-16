@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { CartItem } from '../model/cart-item';
 import { Order } from '../model/order';
 import { OrderedProduct } from '../model/ordered-product';
@@ -12,7 +13,7 @@ import { CartService } from './cart.service';
   providedIn: 'root'
 })
 export class OrderService {
-  private baseUrl="http://localhost:9090/online-fashion-store/order/";
+  private baseUrl=environment.baseURL+"order/";
   
   constructor(private cartService:CartService,private http:HttpClient,private spinner:NgxSpinnerService,private router:Router) { }
 

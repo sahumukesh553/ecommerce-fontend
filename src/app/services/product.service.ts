@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Product } from '../model/product';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Product } from '../model/product';
 })
 export class ProductService {
 
-  private baseUrl="http://localhost:9090/online-fashion-store/products/";
+  private baseUrl=environment.baseURL+"products/";
   constructor(private http:HttpClient) { }
 
   getAllProducts():Observable<Product[]>

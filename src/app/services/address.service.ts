@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Address } from '../model/address';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddressService {
-  private baseUrl="http://localhost:9090/online-fashion-store/address/";
+  private baseUrl= environment.baseURL+"address/";
   constructor(private http:HttpClient) { }
 
   getAllAddresses():Observable<Address[]>

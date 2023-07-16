@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { environment } from 'src/environments/environment';
 import { User } from '../model/user';
 import { UserService } from './user.service';
 
@@ -9,7 +10,7 @@ import { UserService } from './user.service';
   providedIn: 'root'
 })
 export class SaveUpdateUserService {
-  private uploadUrl="http://localhost:9090/online-fashion-store/upload/";
+  private uploadUrl=environment.baseURL+"upload/";
   constructor(private httpClient:HttpClient,private userService:UserService,
     private spinner:NgxSpinnerService) { }
 

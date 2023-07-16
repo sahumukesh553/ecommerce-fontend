@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-private baseUrl="http://localhost:9090/online-fashion-store/users/";
+private baseUrl=environment.baseURL+"users/";
   constructor(private http:HttpClient) { }
 
   getAllUsers():Observable<User[]>

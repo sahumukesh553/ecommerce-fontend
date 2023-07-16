@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { JwtRequest } from '../model/jwt-request';
 import { JwtResponse } from '../model/jwt-response';
 import { User } from '../model/user';
@@ -11,9 +12,9 @@ import { User } from '../model/user';
 })
 export class AuthService {
 
-  private authenticationUrl="http://localhost:9090/online-fashion-store/authenticate";
-  private fetchUserDetailUrl="http://localhost:9090/online-fashion-store/users/";
-  private forgotPasswordUrl="http://localhost:9090/online-fashion-store/forgot-password";
+  private authenticationUrl=environment.baseURL+"authenticate";
+  private fetchUserDetailUrl=environment.baseURL+"users/";
+  private forgotPasswordUrl=environment.baseURL+"forgot-password";
   public loggedInUser=new BehaviorSubject<User>({});
   constructor(private http:HttpClient,private router:Router,private spinner:NgxSpinnerService ) { }
 

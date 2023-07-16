@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IndiaState } from '../model/india-state';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { IndiaState } from '../model/india-state';
 })
 export class StateService {
 
-  private baseUrl="http://localhost:9090/online-fashion-store/states/";
+  private baseUrl=environment.baseURL+"states/";
   constructor(private http:HttpClient) { }
 
   getAllStates():Observable<IndiaState[]>

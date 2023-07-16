@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { environment } from 'src/environments/environment';
 import { Product } from '../model/product';
 import { ProductService } from './product.service';
 
@@ -9,7 +10,7 @@ import { ProductService } from './product.service';
   providedIn: 'root'
 })
 export class SaveUpdateProductService {
-private uploadUrl="http://localhost:9090/online-fashion-store/upload/";
+private uploadUrl=environment.baseURL+"upload/";
   constructor(private httpClient:HttpClient,
     private productService:ProductService,
     private spinner:NgxSpinnerService,private router:Router) { }
@@ -30,9 +31,16 @@ private uploadUrl="http://localhost:9090/online-fashion-store/upload/";
             }
           );
           console.log('Image uploaded successfully');
-        } else {
-          console.log('Image not uploaded successfully');
-        }
+        } 
+      }
+      ,(error)=>
+      {
+       if(error.status==401)
+       {
+        this.router.navigate(['login']);
+       }else{
+        
+       }
       }
       );
   } else {

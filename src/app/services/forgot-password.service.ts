@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { ForgotPasswordModel } from '../model/forgot-password-model';
 import { JwtRequest } from '../model/jwt-request';
 
@@ -8,7 +9,7 @@ import { JwtRequest } from '../model/jwt-request';
   providedIn: 'root'
 })
 export class ForgotPasswordService {
-  private baseUrl="http://localhost:9090/online-fashion-store/password";
+  private baseUrl=environment.baseURL+"password";
 
   constructor(private httpClient:HttpClient) { }
 
